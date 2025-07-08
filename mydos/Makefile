@@ -77,9 +77,10 @@ reserved_blocks = 30
 tyfsedit: tyfsedit.C
 		gcc tyfsedit.c -lm -o tyfsedit
 
-disk.img : tyfsedit
+disk.img : tyfsedit gecOS.bin
 		dd if=/dev/zero of=disk.img count=2880
 		./format -r $(reserved_blocks) disk.img
+		dd if=gecOS.bin of=disk.img conv=notrunc obs=1 seek=16
 
 .PHONY: clean
 
