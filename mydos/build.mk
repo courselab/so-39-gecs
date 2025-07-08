@@ -12,7 +12,7 @@
 # dos = "amazingOS"
 
 dos=$(shell basename $$(realpath .))
-
+dos=gecOS
 # Build the OS and an example user program.
 
 # Link all objects needed by the OS.
