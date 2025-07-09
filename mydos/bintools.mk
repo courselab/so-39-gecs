@@ -173,9 +173,9 @@ run-bin: $(IMG)
 	qemu-system-i386 -drive format=raw,file=$< -net none
 
 run-img : $(IMG)
-	qemu-system-i386 -drive if=floppy,format=raw,file=disk.img -boot a -net none
+	qemu-system-i386 -drive format=raw,file=disk.img -boot a -net none
 
-
+# qemu-system-i386 -drive if=floppy,format=raw,file=disk.img -boot a -net none
 
 
 # Dump contents in hexadecimal

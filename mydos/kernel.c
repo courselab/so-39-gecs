@@ -17,6 +17,7 @@
 #include "bios1.h"  /* For kwrite() etc.            */
 #include "bios2.h"  /* For kread() etc.             */
 #include "kaux.h"   /* Auxiliary kernel functions.  */
+#include "tyfs.h"   /* File system functions.       */
 
 /* Kernel's entry function. */
 
@@ -87,6 +88,7 @@ struct cmd_t cmds[] =
         {"help", f_help}, /* Print a help message.       */
         {"quit", f_quit}, /* Exit TyDOS.                 */
         {"hello", f_hello}, /* Execute an example program. */
+        {"list", f_list}, /* List files in the disk.     */
         {0, 0}};
 
 /* Build-in shell command: help. */
@@ -96,6 +98,7 @@ void f_help()
   kwrite("...me, Obi-Wan, you're my only hope!\n\n");
   kwrite("   But we can try also some commands:\n");
   kwrite("      hello   (to run a sample user program\n");
+  kwrite("      list    (list the files in the disk\n");
   kwrite("      quit    (to exit TyDOS)\n");
 }
 

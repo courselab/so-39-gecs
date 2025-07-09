@@ -17,7 +17,7 @@ dos=gecOS
 
 # Link all objects needed by the OS.
 
-$(dos).bin : bootloader.o bios1.o kernel.o kaux.o bios2.o logo.o syscall.o
+$(dos).bin : bootloader.o bios1.o kernel.o kaux.o bios2.o logo.o syscall.o tyfs.o
 	ld -melf_i386 -T tydos.ld --orphan-handling=discard $^ -o $@
 
 # Here we are statically linking the user program 'prob.bin' into the kernel,
@@ -81,6 +81,9 @@ disk.img : tyfsedit gecOS.bin
 		dd if=/dev/zero of=disk.img count=2880
 		./format -r $(reserved_blocks) disk.img
 		dd if=gecOS.bin of=disk.img conv=notrunc obs=1 seek=16
+		./put dumbest_girl_alive.txt disk.img
+		./put money_machine.txt disk.img
+		./put 757.txt disk.img
 
 .PHONY: clean
 
