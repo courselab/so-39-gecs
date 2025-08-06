@@ -74,7 +74,7 @@ libtydos.a : libtydos.o
 
 reserved_blocks = 30
 
-tyfsedit: tyfsedit.C
+tyfsedit: tyfsedit.c
 		gcc tyfsedit.c -lm -o tyfsedit
 
 disk.img : tyfsedit gecOS.bin
@@ -89,5 +89,6 @@ disk.img : tyfsedit gecOS.bin
 
 clean:
 	rm -f *.bin *.o *~ *.s *.a *.img
+	rm -f tyfsedit
 # SYSeg's  convenience rules (not related to the example itself)
 include bintools.mk
